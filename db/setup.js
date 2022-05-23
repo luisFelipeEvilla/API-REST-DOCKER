@@ -13,7 +13,7 @@ pgtools.createdb(DB_CONFIG, DB_CONFIG.dbName, (err, res) => {
 
     pool.query(`CREATE TABLE IF NOT EXISTS users (
         event_id INTEGER PRIMARY KEY,
-        username VARCHAR ( 50 ) UNIQUE NOT NULL,
+        username VARCHAR ( 50 ) NOT NULL,
         password VARCHAR ( 50 ) NOT NULL
      );`).then(() => {
         console.log(chalk.green("Tabla de usuarios creada satisfactoriamente"));
