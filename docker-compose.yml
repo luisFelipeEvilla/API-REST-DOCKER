@@ -22,5 +22,4 @@ services:
       - DB_NAME=docker
       - DB_PORT=5432
       - DB_HOST=db
-    stdin_open: true
     tty: true

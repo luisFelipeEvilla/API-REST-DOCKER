@@ -3,8 +3,8 @@ const pool = require('./index');
 const chalk = require('chalk')
 
 pool.query(`CREATE TABLE IF NOT EXISTS users (
-        event_id INTEGER PRIMARY KEY,
-        username VARCHAR ( 50 ) NOT NULL,
+        event_id VARCHAR ( 50 ) NOT NULL,
+        username VARCHAR ( 50 ) UNIQUE NOT NULL,
         password VARCHAR ( 50 ) NOT NULL
      );`).then(() => {
     console.log(chalk.green("Tabla de usuarios creada satisfactoriamente"));

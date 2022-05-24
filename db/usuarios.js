@@ -17,6 +17,23 @@ const createUser = async (eventId, userName, userPassword) => {
     }
 }
 
+const createUsers = (users) => {
+    const results = [];
+
+    users.forEach(async (user) => {
+        const result = new Promise((resolve, reject) => {
+            createUser(user.eventId, user.username, user.password).
+                then( (created) => {
+                    resolve({id: user.eventId, created})
+                })
+        });
+
+        results.push(result)
+    })
+
+    return results;
+}
+
 const getUsers = async () => {
     const query =  'SELECT * FROM users';
 
@@ -64,5 +81,6 @@ const deleteUsers = async () => {
 module.exports = {
     getUser,
     createUser,
+    createUsers,
     deleteUsers
 }
